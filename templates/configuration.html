@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title><meta charset="UTF-8">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'image/favicon-32x32.png' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+	<script src="{% static 'js/common.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'css/styte.css' %}">
+</head>
+<body>
+	<header class="header dflex dflex__ct dflex__ct__ct">
+		<div class="header__logo">
+			<a href="{% url 'index_HTML' %}" class="dflex dflex__ct dflex__ct__ct btn btn__nav__header" >
+				<img class="logo__header" src="{% static 'image/logo.png' %}" alt="">
+				<span class="header__logo__title dflex dflex__ct dflex__column dflex__ct__ct">
+					<span class="title__f18">
+						CTD-TNUT
+					</span>
+					<span class="title__f12 text__ct">
+						Trung tâm nghiên cứu, sáng tạo và phát triển công nghệ
+					</span>
+				</span>
+			</a>
+		</div>
+		<div class="header__nav dflex dflex__ct dflex__ct__ct dflex__column">
+			<div class="header__title dflex dflex__ct dflex__ct__ct dflex__column btn btn__nav__header">
+				<h2 class="text__ct">HỆ THỐNG ĐIỀU KHIỂN TÁI CẤU TRÚC PIN MẶT TRỜI</h2>
+			</div>
+			<nav class="header__nav__list dflex__ct dflex__ct__ct">
+				<div class="dflex dflex__ct dflex__ct__ct">
+					<div class="header__nav__item">
+						<a href="{% url 'index_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Thông tin hệ thống
+						</a>
+					</div>
+					<div class="header__nav__item">
+						<a href="{% url 'solars_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Thông tin các tấm pin
+						</a>
+					</div>
+					<div class="header__nav__item">
+						<a href="{% url 'configuration_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Cấu hình
+						</a>
+					</div>
+					<div class="header__nav__item">
+						<a href="{% url 'changepass_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Đổi mật khẩu
+						</a>
+					</div>
+					<div class="header__nav__item">
+						<a href="{% url 'Logout' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct btn__nav__lo">
+							Đăng xuất
+						</a>
+					</div>
+				</div>
+			</nav>
+			<div class="header__menu">
+				<div class="header__menu__inner dflex dflex__ct dflex__ct__ct">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+			<nav class="header__nav__sp">
+				<div class="header__nav__sp__inner dflex dflex__ct dflex__ct__sa dflex__column">
+					<div class="header__nav__item__sp">
+						<a href="{% url 'index_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Thông tin hệ thống
+						</a>
+					</div>
+					<div class="header__nav__item__sp">
+						<a href="{% url 'solars_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Thông tin các tấm pin
+						</a>
+					</div>
+					<div class="header__nav__item__sp">
+						<a href="{% url 'configuration_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Cấu hình
+						</a>
+					</div>
+					<div class="header__nav__item__sp">
+						<a href="{% url 'changepass_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Đổi mật khẩu
+						</a>
+					</div>
+					<div class="header__nav__item__sp">
+						<a href="{% url 'Logout' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct btn__nav__lo">
+							Đăng xuất
+						</a>
+					</div>
+					<div class="header__logo__sp">
+						<a href="" class="dflex dflex__ct dflex__ct__ct btn btn__nav__header" >
+							<img class="logo__header" src="{% static 'image/logo.png' %}" alt="">
+							<span class="header__logo__title dflex dflex__ct dflex__column dflex__ct__ct">
+								<span class="title__f18">
+									CTD-TNUT
+								</span>
+								<span class="title__f12 text__ct">
+									Trung tâm nghiên cứu, sáng tạo và phát triển công nghệ
+								</span>
+							</span>
+						</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<content class="content">
+		<section class="content__1">
+			<div class="inner">
+				<div class="content__1__header btn__content dflex">
+					<span>Trạng thái hệ thống</span>
+				</div>
+				<div class="content__1__inner dflex dflex__ct dflex__ct__ct">
+					
+					<div class="content__1__ts dflex dflex__ct dflex__ct__sb dflex__column">
+						<h2>Điều khiển ghép nối</h2>
+						<div class="content__list conf dflex dflex__ct dflex__ct__ct dflex__column">
+							<div class="content__conf dflex dflex__ct dflex__ct__ct dflex__column">
+								<label for="time__start">Thời gian bắt đầu</label>
+								<input type="time" name="" class="time" id="time__start">
+								<label for="time__finish">Thời gian kết thúc</label>
+								<input type="time" name="" class="time" id="time__finish">
+							</div>
+							<a class="content__conf__btn">
+								Xác nhận
+							</a>
+						</div>
+					</div>
+					<div class="content__1__ttht dflex dflex__ct dflex__ct__sb dflex__column">
+						<h2>Điều khiển đèn</h2>
+						<div class="content__list conf dflex dflex__ct dflex__ct__sa">
+							<div class="content__conf dflex dflex__ct dflex__ct__ct dflex__column">
+								<a href="" class="content__conf__btn a">Chế độ hẹn giờ</a>
+								<a href="" class="content__conf__btn b">Chế độ thủ công</a>
+								<a href="" class="content__conf__btn c">Ngắt nguồn</a>
+							</div>
+							<div class="content__conf dflex dflex__ct dflex__ct__ct dflex__column">
+								<div class="content__time dflex dflex__ct dflex__ct__ct dflex__column">
+									<label for="time__start">Thời gian bật</label>
+									<input type="time" name="" class="time" id="time__on">
+									<label for="time__finish">Thời gian tắt</label>
+									<input type="time" name="" class="time" id="time__off">
+								</div>
+								<a href="" class="content__conf__btn">Xác nhận</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</content>
+</body>
+</html>

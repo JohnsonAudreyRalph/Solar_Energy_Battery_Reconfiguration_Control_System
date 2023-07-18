@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title><meta charset="UTF-8">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'image/favicon-32x32.png' %}">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+	<script src="{% static 'js/common.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'css/styte.css' %}">
+</head>
+<body>
+	<header class="header dflex dflex__ct dflex__ct__ct">
+		<div class="header__logo ">
+			<a href="{% url 'index_HTML' %}" class="dflex dflex__ct dflex__ct__ct btn btn__nav__header" >
+				<img class="logo__header" src="{% static 'image/logo.png' %}" alt="">
+				<span class="header__logo__title dflex dflex__ct dflex__column dflex__ct__ct">
+					<span class="title__f18">
+						CTD-TNUT
+					</span>
+					<span class="title__f12 text__ct">
+						Trung tâm nghiên cứu, sáng tạo và phát triển công nghệ
+					</span>
+				</span>
+			</a>
+		</div>
+		<div class="header__nav dflex dflex__ct dflex__ct__ct dflex__column">
+			<div class="header__title dflex dflex__ct dflex__ct__ct dflex__column btn btn__nav__header">
+				<h2 class="text__ct">HỆ THỐNG ĐIỀU KHIỂN TÁI CẤU TRÚC PIN MẶT TRỜI</h2>
+			</div>
+			<nav class="header__nav__list dflex__ct dflex__ct__ct">
+				<div class="dflex dflex__ct dflex__ct__ct">
+					<div class="header__nav__item">
+						<a href="{% url 'index_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Thông tin hệ thống
+						</a>
+					</div>
+					<div class="header__nav__item">
+						<a href="{% url 'solars_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Thông tin các tấm pin
+						</a>
+					</div>
+					<div class="header__nav__item">
+						<a href="{% url 'configuration_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Cấu hình
+						</a>
+					</div>
+					<div class="header__nav__item">
+						<a href="{% url 'changepass_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Đổi mật khẩu
+						</a>
+					</div>
+					<div class="header__nav__item">
+						<a href="{% url 'Logout' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct btn__nav__lo">
+							Đăng xuất
+						</a>
+					</div>
+				</div>
+			</nav>
+			<div class="header__menu">
+				<div class="header__menu__inner dflex dflex__ct dflex__ct__ct">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+			<nav class="header__nav__sp">
+				<div class="header__nav__sp__inner dflex dflex__ct dflex__ct__sa dflex__column">
+					<div class="header__nav__item__sp">
+						<a href="{% url 'index_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Thông tin hệ thống
+						</a>
+					</div>
+					<div class="header__nav__item__sp">
+						<a href="{% url 'solars_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Thông tin các tấm pin
+						</a>
+					</div>
+					<div class="header__nav__item__sp">
+						<a href="{% url 'configuration_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Cấu hình
+						</a>
+					</div>
+					<div class="header__nav__item__sp">
+						<a href="{% url 'changepass_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+							Đổi mật khẩu
+						</a>
+					</div>
+					<div class="header__nav__item__sp">
+						<a href="{% url 'Logout' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct btn__nav__lo">
+							Đăng xuất
+						</a>
+					</div>
+					<div class="header__logo__sp">
+						<a href="" class="dflex dflex__ct dflex__ct__ct btn btn__nav__header" >
+							<img class="logo__header" src="{% static 'image/logo.png' %}" alt="">
+							<span class="header__logo__title dflex dflex__ct dflex__column dflex__ct__ct">
+								<span class="title__f18">
+									CTD-TNUT
+								</span>
+								<span class="title__f12 text__ct">
+									Trung tâm nghiên cứu, sáng tạo và phát triển công nghệ
+								</span>
+							</span>
+						</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<content class="content">
+		<section class="content__cp">
+			<div class="inner dflex dflex__ct dflex__ct__ct dflex__column">
+				<div class="content__cp__inner dflex dflex__ct dflex__ct__ct dflex__column">
+					<h1 class="content__cp__title">
+						Đổi mật khẩu
+					</h1>
+					{% if mess %}
+						<div class="{{error}}">{{mess}}</div>
+					{% endif %}
+					<form action="" method="post"  class='dflex dflex__ct dflex__ct__ct dflex__column' style="gap: 28px; width: 100%">
+						{% csrf_token %}
+						<input type="password" name="pass_old" class="pass" id="pass_old" placeholder="Mật khẩu cũ">
+							<input type="password" name="pass_new" class="pass" id="pass_new" placeholder="Mật khẩu mới" onkeyup="Check_Password()">
+							<input type="password" name="pass_new_re" class="pass" id="pass_new_re" placeholder="Xác nhận mật khẩu" onkeyup="Check_Password()">
+						<button type="submit" class="content__cp__btn" id='btn_submit'>Xác nhận</button>
+					</form>
+				</div>
+			</div>
+		</section>
+	</content>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		function Check_Password(){
+			let pass_new = $("#pass_new").val();
+			let pass_new_re = $("#pass_new_re").val();
+			if(pass_new==pass_new_re){
+				$("#pass_new").css("border", "1px solid green");
+				$("#pass_new_re").css("border", "1px solid green");
+				$("#btn_submit").removeAttr("disabled");
+			}
+			else{
+				$("#pass_new").css("border", "1px solid red");
+				$("#pass_new_re").css("border", "1px solid red");
+				$("#btn_submit").attr("disabled", "disabled");
+			}
+		}
+	</script>
+</body>
+</html>

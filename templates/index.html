@@ -1,0 +1,474 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'image/favicon-32x32.png' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+    <script src="{% static 'js/chart.js' %}"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{% static 'css/styte.css' %}">
+</head>
+
+<body>
+    <header class="header dflex dflex__ct dflex__ct__ct">
+        <div class="header__logo ">
+            <a href="{% url 'index_HTML' %}" class="dflex dflex__ct dflex__ct__ct btn btn__nav__header">
+                <img class="logo__header" src="{% static 'image/logo.png' %}" alt="">
+                <span class="header__logo__title dflex dflex__ct dflex__column dflex__ct__ct">
+                    <span class="title__f18">
+                        CTD-TNUT
+                    </span>
+                    <span class="title__f12 text__ct">
+                        Trung tâm nghiên cứu, sáng tạo và phát triển công nghệ
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="header__nav dflex dflex__ct dflex__ct__ct dflex__column">
+            <div class="header__title dflex dflex__ct dflex__ct__ct dflex__column btn btn__nav__header">
+                <h2 class="text__ct">HỆ THỐNG ĐIỀU KHIỂN TÁI CẤU TRÚC PIN MẶT TRỜI</h2>
+            </div>
+            <nav class="header__nav__list dflex__ct dflex__ct__ct">
+                <div class="dflex dflex__ct dflex__ct__ct">
+                    <div class="header__nav__item">
+                        <a href="{% url 'index_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+                            Thông tin hệ thống
+                        </a>
+                    </div>
+                    <div class="header__nav__item">
+                        <a href="{% url 'solars_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+                            Thông tin các tấm pin
+                        </a>
+                    </div>
+                    <div class="header__nav__item">
+                        <a href="{% url 'configuration_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+                            Cấu hình
+                        </a>
+                    </div>
+                    <div class="header__nav__item">
+                        <a href="{% url 'changepass_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+                            Đổi mật khẩu
+                        </a>
+                    </div>
+                    <div class="header__nav__item">
+                        <a href="{% url 'Logout' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct btn__nav__lo">
+                            Đăng xuất
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <div class="header__menu">
+                <div class="header__menu__inner dflex dflex__ct dflex__ct__ct">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <nav class="header__nav__sp">
+                <div class="header__nav__sp__inner dflex dflex__ct dflex__ct__sa dflex__column">
+                    <div class="header__nav__item__sp">
+                        <a href="{% url 'index_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+                            Thông tin hệ thống
+                        </a>
+                    </div>
+                    <div class="header__nav__item__sp">
+                        <a href="{% url 'solars_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+                            Thông tin các tấm pin
+                        </a>
+                    </div>
+                    <div class="header__nav__item__sp">
+                        <a href="{% url 'configuration_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+                            Cấu hình
+                        </a>
+                    </div>
+                    <div class="header__nav__item__sp">
+                        <a href="{% url 'changepass_HTML' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct">
+                            Đổi mật khẩu
+                        </a>
+                    </div>
+                    <div class="header__nav__item__sp">
+                        <a href="{% url 'Logout' %}" class="btn btn__nav__header btn__nav__item dflex dflex__ct__ct btn__nav__lo">
+                            Đăng xuất
+                        </a>
+                    </div>
+                    <div class="header__logo__sp">
+                        <a href="" class="dflex dflex__ct dflex__ct__ct btn btn__nav__header">
+                            <img class="logo__header" src="{% static 'image/logo.png' %}" alt="">
+                            <span class="header__logo__title dflex dflex__ct dflex__column dflex__ct__ct">
+                                <span class="title__f18">
+                                    CTD-TNUT
+                                </span>
+                                <span class="title__f12 text__ct">
+                                    Trung tâm nghiên cứu, sáng tạo và phát triển công nghệ
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <content class="content">
+        <section class="content__1">
+            <div class="inner">
+                <div class="content__1__header btn__content dflex">
+                    <span>Trạng thái hệ thống</span>
+                </div>
+                <div class="content__1__inner dflex dflex__ct dflex__ct__ct">
+                    <div class="content__1__ttht dflex dflex__ct dflex__ct__sb dflex__column">
+                        <h2>Trạng thái hệ thống</h2>
+                        <div class="content__list dflex dflex__ct dflex__ct__sa">
+                            <div class="content__item dflex dflex__ct dflex__ct__ct dflex__column">
+                                <span class="content__item__title">
+                                    Dung lượng ắc quy
+                                </span>
+                                <img src="{% static 'image/acquy.png' %}" alt="">
+                                <div class="btn__content__display">
+                                    <p>92<span> %</span></p>
+                                </div>
+                            </div>
+                            <div class="content__item dflex dflex__ct dflex__ct__ct dflex__column">
+                                <span class="content__item__title">
+                                    Công suất thu
+                                </span>
+                                <img src="{% static 'image/solar.png' %}" alt="">
+                                <div class="btn__content__display">
+                                    <p>1234<span> kW</span></p>
+                                </div>
+                            </div>
+                            <div class="content__item dflex dflex__ct dflex__ct__ct dflex__column">
+                                <span class="content__item__title">
+                                    Công suất tiêu thụ
+                                </span>
+                                <img src="{% static 'image/solar1.png' %}" alt="">
+                                <div class="btn__content__display">
+                                    <p>1234<span> kW</span></p>
+                                </div>
+                            </div>
+                            <div class="content__item dflex dflex__ct dflex__ct__ct dflex__column">
+                                <span class="content__item__title">
+                                    Trạng thái ghép nối
+                                </span>
+                                <div class="btn__notice active">
+                                    <div class="btn__notice__inner">
+                                        <div class="notice__inner"></div>
+                                    </div>
+                                </div>
+                                <div class="btn__content__display auto active">
+                                    <p class="auto__on">Tự động</p>
+                                    <p class="auto__off">Thủ công</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content__1__ts dflex dflex__ct dflex__ct__sb dflex__column">
+                        <h2>Thông số thu được tháng 7</h2>
+                        <div class="content__list">
+                            <div class="content__item dflex dflex__ct dflex__ct__sb">
+                                <div class="content__ts_a dflex dflex__ct dflex__ct__fs dflex__column">
+                                    <span class="content__item__title">
+                                        Công suất thu được tháng 7
+                                    </span>
+                                    <div class="btn__content__display">
+                                        <p>99999999<span> kW</span></p>
+                                    </div>
+                                </div>
+                                <img src="{% static 'image/solar.png' %}" alt="">
+                            </div>
+                            <div class="content__item dflex dflex__ct dflex__ct__sb">
+                                <div class="content__ts_a dflex dflex__ct dflex__ct__fs dflex__column">
+                                    <span class="content__item__title">
+                                        Công suất tiêu thụ tháng 7
+                                    </span>
+                                    <div class="btn__content__display">
+                                        <p>99999999<span> kW</span></p>
+                                    </div>
+                                </div>
+                                <img src="{% static 'image/solar1.png' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="content__2">
+            <div class="inner dflex dflex__ct dflex__ct__fs dflex__column">
+                <div class="content__1__header btn__content dflex">
+                    <span>Trạng thái hệ thống</span>
+                </div>
+                <div class="w3-row-padding">
+                    <div class="w3-third">
+                        <img src="{% static 'image/line1.gif' %}" alt="">
+                        <div class="content__2__ts">
+                            <div class="content__2__ts__a">
+                                <p>Công suất</p>
+                                <div class="btn__content__display">
+                                    <p>99999999<span> kW</span></p>
+                                </div>
+                            </div>
+                            <div class="content__2__ts__a">
+                                <p>Điện áp</p>
+                                <div class="btn__content__display">
+                                    <p>99999999<span> kV</span></p>
+                                </div>
+                            </div>
+                            <div class="content__2__ts__a">
+                                <p>Dòng diện</p>
+                                <div class="btn__content__display">
+                                    <p>99999999<span> kA</span></p>
+                                </div>
+                            </div>
+                            <div class="content__2__ts__a">
+                                <p>PV</p>
+                                <div class="btn__content__display">
+                                    <p>99999999</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w3-third">
+                        <img src="{% static 'image/line2.gif' %}" alt="">
+                        <div class="content__2__ts">
+                            <div class="content__2__ts__a">
+                                <p>Công suất</p>
+                                <div class="btn__content__display">
+                                    <p>99999999<span> kW</span></p>
+                                </div>
+                            </div>
+                            <div class="content__2__ts__a">
+                                <p>Điện áp</p>
+                                <div class="btn__content__display">
+                                    <p>99999999<span> kV</span></p>
+                                </div>
+                            </div>
+                            <div class="content__2__ts__a">
+                                <p>Dòng diện</p>
+                                <div class="btn__content__display">
+                                    <p>99999999<span> kA</span></p>
+                                </div>
+                            </div>
+                            <div class="content__2__ts__a">
+                                <p>PV</p>
+                                <div class="btn__content__display">
+                                    <p>99999999</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w3-third">
+                        <img src="{% static 'image/line2.gif' %}" alt="">
+                        <div class="content__2__ts">
+                            <div class="content__2__ts__a">
+                                <p>Công suất</p>
+                                <div class="btn__content__display">
+                                    <p>99999999<span> kW</span></p>
+                                </div>
+                            </div>
+                            <div class="content__2__ts__a">
+                                <p>Điện áp</p>
+                                <div class="btn__content__display">
+                                    <p>99999999<span> kV</span></p>
+                                </div>
+                            </div>
+                            <div class="content__2__ts__a">
+                                <p>Dòng diện</p>
+                                <div class="btn__content__display">
+                                    <p>99999999<span> kA</span></p>
+                                </div>
+                            </div>
+                            <div class="content__2__ts__a">
+                                <p>PV</p>
+                                <div class="btn__content__display">
+                                    <p>99999999</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="content__3">
+            <div class="inner">
+                <div class="content__1__header btn__content dflex">
+                    <span>Biểu đồ thống kê</span>
+                </div>
+                <div class="chart">
+                    <canvas id="myChart">
+                    </canvas>
+                    <div class="btn dflex dflex__ct dflex__ct__ct" style="gap: 40px;">
+                        <span>Tháng:</span>
+                        <select id="select" class="s__month" onchange="timeFream(this)">
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option valua=4>4</option>
+                            <option valua=5>5</option>
+                            <option valua=6>6</option>
+                            <option valua=7>7</option>
+                            <option valua=8>8</option>
+                            <option valua=9>9</option>
+                            <option valua=10>10</option>
+                            <option valua=11>11</option>
+                            <option valua=12>12</option>
+                        </select>
+                        <span>Năm:</span>
+                        <button value="year" class="btn__year" onclick="timeFream(this)">2023</button>
+                    </div>
+                    <script type="text/javascript">
+                        var startDate = new Date(2023, 0, 1);
+                        var endDate = new Date(2023, 11, 31);
+                        var year = {};
+                        var currentDate = startDate;
+                        while (currentDate <= endDate) {
+                            var month = currentDate.getMonth() + 1;
+                            var day = currentDate.getDate();
+
+                            var x = day;
+                            var y = (month + day) * 1000 * (Math.random(1000) * 10) + 1;
+                            var y1 = (month + day) * 1000 * (Math.random(1000) * 10) + 1;
+                            if (!year[month]) {
+                                year[month] = {};
+                            }
+                            var dates = [{ x: x.toString(), y: y }, { x: x.toString(), y: y1 }];
+                            year[month][day] = dates;
+
+                            currentDate.setDate(currentDate.getDate() + 1);
+                        }
+
+                        function get_day(a) {
+                            label_day_x = [];
+                            if (a == 1 || a == 3 || a == 5 || a == 7 || a == 8 || a == 10 || a == 12) {
+                                for (var i = 1; i <= 31; i++) {
+                                    label_day_x[i] = year[a][i][0].x;
+                                }
+                                label_day_x.shift();
+                                return label_day_x;
+                            }
+                            if (a == 2) {
+                                for (var i = 1; i <= 28; i++) {
+                                    label_day_x[i] = year[a][i][0].x;
+                                }
+                                label_day_x.shift();
+                                return label_day_x;
+                            } else {
+                                for (var i = 1; i <= 30; i++) {
+                                    label_day_x[i] = year[a][i][0].x;
+                                }
+                                label_day_x.shift();
+                                return label_day_x;
+                            }
+                        }
+
+                        function get_td_day(a) {
+                            label_day_y_td = [];
+                            if (a == 1 || a == 3 || a == 5 || a == 7 || a == 8 || a == 10 || a == 12) {
+                                for (var i = 1; i <= 31; i++) {
+                                    label_day_y_td[i] = year[a][i][0].y;
+                                }
+                                label_day_y_td.shift();
+                                return label_day_y_td;
+                            }
+                            if (a == 2) {
+                                for (var i = 1; i <= 28; i++) {
+                                    label_day_y_td[i] = year[a][i][0].y;
+                                }
+                                label_day_y_td.shift();
+                                return label_day_y_td;
+                            } else {
+                                for (var i = 1; i <= 30; i++) {
+                                    label_day_y_td[i] = year[a][i][0].y;
+                                }
+                                label_day_y_td.shift();
+                                return label_day_y_td;
+                            }
+                        }
+
+                        function get_tt_day(a) {
+                            label_day_y_tt = [];
+
+                            if (a == 1 || a == 3 || a == 5 || a == 7 || a == 8 || a == 10 || a == 12) {
+                                for (var i = 1; i <= 31; i++) {
+                                    label_day_y_tt[i] = year[a][i][1].y;
+                                }
+                                label_day_y_tt.shift();
+                                return label_day_y_tt;
+                            }
+                            if (a == 2) {
+                                for (var i = 1; i <= 28; i++) {
+                                    label_day_y_tt[i] = year[a][i][1].y;
+                                }
+                                label_day_y_tt.shift();
+                                return label_day_y_tt;
+                            } else {
+                                for (var i = 1; i <= 30; i++) {
+                                    label_day_y_tt[i] = year[a][i][1].y;
+                                }
+                                label_day_y_tt.shift();
+                                return label_day_y_tt;
+                            }
+                        }
+
+                        var sums_td = {};
+                        var sums_tt = {};
+                        for (var month in year) {
+                            sums_td[month.toString()] = 0;
+                            sums_tt[month.toString()] = 0;
+                            for (var day in year[month]) {
+                                sums_tt[month] += year[month][day][0].y;
+                                sums_td[month] += year[month][day][1].y;
+                            }
+                        }
+                        var label_month = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+                        const data = {
+                            labels: label_month,
+                            datasets: [{
+                                label: 'Công suất thu được',
+                                data: sums_td,
+                                fill: false,
+                                borderColor: '#0000ff',
+                                tension: 0.1
+                            }, {
+                                label: 'Công suất tiêu thụ',
+                                data: sums_tt,
+                                fill: false,
+                                borderColor: '#ff0000',
+                                tension: 0.1
+                            }]
+                        };
+                        const config = {
+                            type: 'line',
+                            data: data,
+                        };
+
+                        var myChart = new Chart(
+                            document.getElementById('myChart'),
+                            config
+                            );
+
+                        function timeFream(a) {
+                            if (a.value == 'year') {
+                                data.labels = label_month;
+                                data.datasets[0].data = sums_td;
+                                data.datasets[1].data = sums_tt;
+                            } else {
+                                data.labels = get_day(a.value);
+                                data.datasets[0].data = get_td_day(a.value);
+                                data.datasets[1].data = get_tt_day(a.value);
+                            }
+                            myChart.update();
+                        }
+                    </script>
+                </div>
+            </div>
+        </section>
+    </content>
+</body>
+
+</html>

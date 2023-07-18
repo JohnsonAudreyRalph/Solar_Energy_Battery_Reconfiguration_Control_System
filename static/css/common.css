@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap");
+*,
+*:after,
+*:before {
+  box-sizing: border-box; }
+
+img,
+svg {
+  display: block;
+  max-width: 100%; }
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #585147;
+  margin-top: 100px; }
+
+.dflex {
+  display: flex; }
+  .dflex__ct {
+    align-items: center; }
+    .dflex__ct__ct {
+      justify-content: center; }
+    .dflex__ct__fs {
+      justify-content: flex-start; }
+    .dflex__ct__fe {
+      justify-content: flex-end; }
+    .dflex__ct__sb {
+      justify-content: space-between; }
+    .dflex__ct__sa {
+      justify-content: space-around; }
+  .dflex__column {
+    flex-direction: column; }
+  .dflex__wrap {
+    flex-wrap: wrap; }
+
+.logo {
+  max-width: 80px;
+  height: 80px; }
+  .logo__header {
+    max-width: 48px;
+    height: 48px;
+    margin-right: 20px; }
+
+.inner {
+  position: relative;
+  width: 1050px;
+  max-width: 90%;
+  margin: 0 auto; }
+
+.title__fw700 {
+  font-weight: 700; }
+.title__fw500 {
+  font-weight: 500; }
+.title__fw300 {
+  font-weight: 300; }
+.title__f12 {
+  font-size: 12px; }
+.title__f16 {
+  font-size: 16px; }
+.title__f18 {
+  font-size: 18px; }
+.title__f22 {
+  font-size: 22px; }
+.title__f28 {
+  font-size: 28px; }
+.title__ct {
+  text-align: center; }
+
+.btn__log {
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-radius: 12px;
+  background-color: #fff;
+  color: #333;
+  transition: 0.5s; }
+  .btn__log:hover {
+    background-color: #333;
+    color: #fff; }
+.btn__nav__header {
+  background-color: #63AD82;
+  padding: 12px 24px;
+  box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.7), inset 0px 4px 5px 1px rgba(0, 0, 0, 0.4), inset 0px 5px 2px 4px rgba(255, 255, 255, 0.4), inset 0px 5px 8px 4px rgba(255, 255, 255, 0.4), inset 0px -2px 6px 4px rgba(0, 0, 0, 0.4), inset 0px -2px 6px 4px rgba(0, 0, 0, 0.4); }
+.btn__nav__item:hover {
+  box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.7), inset 0px 4px 5px 1px rgba(0, 0, 0, 0.4), inset 0px 5px 2px 4px rgba(255, 255, 255, 0.4), inset 0px 5px 8px 4px rgba(255, 255, 255, 0.4), inset 0px -2px 6px 4px rgba(0, 0, 0, 0.4), inset 0px -2px 6px 4px rgba(0, 0, 0, 0.4); }
+.btn__nav__lo {
+  background-color: red; }
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/bglog.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+.text__ct {
+  text-align: center; }
+
+@media (max-width: 768px) {
+  .bg {
+    display: block; }
+
+  .log__left {
+    display: none; } }
+@media (min-width: 769px) {
+  .bg {
+    display: none; } }
+
+/*# sourceMappingURL=common.css.map */
