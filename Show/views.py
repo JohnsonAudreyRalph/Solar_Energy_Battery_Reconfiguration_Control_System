@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
+import requests
+
 # Create your views here.
 # def Login(req):
 #     return render(req, 'login.html')
@@ -33,7 +35,32 @@ class Login(View):
 
 class Affter_Login(View):
     def get(self, request):
-        return render(request, 'index.html')
+        url = "http://solar-ctd.ddns.net/data/line"
+        response = requests.get(url)
+        data = response.json()
+
+        line1_power = data["data"]["line1"]["power"]
+        line1_volt = data["data"]["line1"]['volt']
+        line1_perform = data["data"]["line1"]["perform"]
+        line1_ampe = data["data"]["line1"]["ampe"]
+
+        line2_power = data["data"]["line2"]["power"]
+        line2_volt = data["data"]["line2"]['volt']
+        line2_perform = data["data"]["line2"]["perform"]
+        line2_ampe = data["data"]["line2"]["ampe"]
+
+        conx = {
+            'line1_power':line1_power,
+            'line1_volt':line1_volt,
+            'line1_perform':line1_perform,
+            'line1_ampe':line1_ampe,
+            'line2_power':line2_power,
+            'line2_volt':line2_volt,
+            'line2_perform':line2_perform,
+            'line2_ampe':line2_ampe
+        }
+
+        return render(request, 'index.html', conx)
     
 def Logout(request):
     logout(request)
